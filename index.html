@@ -1,0 +1,91 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOTOS SEGURAS</title>
+    <title>"Tu privacidad vale mucho"</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="background-text"></div>
+
+    <!-- CONTENEDOR LOGIN / REGISTRO -->
+    <main id="auth-container" class="container-center">
+        <h1 class="animated-title">
+            <svg class="lock-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path class="lock-shackle" d="M7 10V7a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2" fill="none" />
+                <rect class="lock-body" x="6" y="10" width="12" height="10" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none" />
+            </svg>
+            FOTOS SEGURAS
+        </h1>
+
+        <form id="login-form" class="box" autocomplete="off" novalidate>
+            <h2>Iniciar sesión</h2>
+            <label for="login-username">Usuario</label>
+            <input type="text" id="login-username" required autocomplete="username" />
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" required autocomplete="current-password" />
+            <button type="submit">Entrar</button>
+            <p class="switch-form">¿No tienes cuenta? <button type="button" id="to-register">Regístrate</button></p>
+            <p id="login-error" class="error-msg"></p>
+        </form>
+
+        <form id="register-form" class="box hidden" autocomplete="off" novalidate>
+            <h2>Registro</h2>
+            <label for="register-username">Usuario</label>
+            <input type="text" id="register-username" required autocomplete="username" />
+            <label for="register-password">Contraseña</label>
+            <input type="password" id="register-password" required autocomplete="new-password" />
+            <label for="register-password2">Confirmar contraseña</label>
+            <input type="password" id="register-password2" required autocomplete="new-password" />
+            <button type="submit">Registrarse</button>
+            <p class="switch-form">¿Ya tienes cuenta? <button type="button" id="to-login">Inicia sesión</button></p>
+            <p id="register-error" class="error-msg"></p>
+        </form>
+    </main>
+
+    <!-- APP PRINCIPAL -->
+    <div id="app" class="hidden">
+        <header>
+            <h1 class="animated-title">FOTOS SEGURAS</h1>
+            <h2 class="animated-title light-glow">"Tu privacidad vale mucho"</h2>
+            <button id="logout-btn" title="Cerrar sesión" aria-label="Cerrar sesión">Cerrar sesión</button>
+        </header>
+
+        <section id="controls">
+            <button id="create-folder-btn" title="Crear carpeta">+ Nueva carpeta</button>
+            <label for="upload-input" class="btn-upload" title="Subir fotos">
+                <input type="file" id="upload-input" accept="image/*" multiple />Subir fotos
+            </label>
+            <button id="delete-selected-btn" disabled title="Eliminar archivos seleccionados">Eliminar seleccionados</button>
+        </section>
+
+        <main id="folders-container" aria-live="polite" aria-label="Carpetas y fotos"></main>
+
+        <dialog id="folder-name-dialog">
+            <form id="folder-name-form">
+                <label for="folder-name-input">Nombre de la carpeta:</label>
+                <input type="text" id="folder-name-input" required maxlength="30" />
+                <div class="dialog-buttons">
+                    <button type="submit">Guardar</button>
+                    <button type="button" id="cancel-folder-name">Cancelar</button>
+                </div>
+                <p id="folder-error" class="error-msg"></p>
+            </form>
+        </dialog>
+
+        <dialog id="image-viewer" aria-modal="true">
+            <button id="viewer-close" title="Cerrar visor" aria-label="Cerrar visor">&times;</button>
+            <img src="" alt="Imagen ampliada" id="viewer-img" />
+            <nav id="viewer-nav">
+                <button id="viewer-prev" title="Anterior" aria-label="Imagen anterior">&#10094;</button>
+                <button id="viewer-next" title="Siguiente" aria-label="Imagen siguiente">&#10095;</button>
+            </nav>
+        </dialog>
+    </div>
+<title>Carlos Restrepo 🛡️</title>
+    <script src="script.js"></script>
+</body>
+</html>
